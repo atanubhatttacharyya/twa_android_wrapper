@@ -20,7 +20,6 @@ android {
     }
 }
 
-dependencies {
-    implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.6.2'
-    implementation 'androidx.browser:browser:1.8.0'
+configurations.configureEach {
+    resolutionStrategy.force 'androidx.browser:browser:1.8.0'
 }
