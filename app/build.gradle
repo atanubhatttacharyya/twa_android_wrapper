@@ -1,23 +1,34 @@
-plugins { id 'com.android.application' }
+plugins {
+    id 'com.android.application'
+}
 
 def elevateBaseUrl = project.findProperty('ELEVATE_BASE_URL') ?: 'https://notrade.myelevateapps.com'
 
 android {
     namespace 'com.elevate.optiontrading'
     compileSdk 35
+
     defaultConfig {
         applicationId 'com.elevate.optiontrading'
         minSdk 23
         targetSdk 35
         versionCode 1
         versionName '1.0.0'
-        buildConfigField 'String', 'ELEVATE_BASE_URL', '\"' + elevateBaseUrl + '\"'
+        buildConfigField 'String', 'ELEVATE_BASE_URL', '"' + elevateBaseUrl + '"'
     }
-    buildFeatures { buildConfig true }
+
+    buildFeatures {
+        buildConfig true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+}
+
+dependencies {
+    implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.6.2'
 }
 
 configurations.configureEach {
